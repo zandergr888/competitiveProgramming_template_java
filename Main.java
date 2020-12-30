@@ -18,16 +18,28 @@ public class Main{
     /*static Kattio io;
     static {
         try {
-            io = new Kattio("cowqueue");
+            io = new Kattio("");
         } catch(IOException e) {}
     }*/
     static Kattio io = new Kattio();
+    static TreeMap<Integer, Integer> multiset = new TreeMap<Integer, Integer>();
     public static void main(String[]args) throws IOException {
 
-
+    }
+    static void add(int x){
+        if(multiset.containsKey(x)){
+            multiset.put(x, multiset.get(x) + 1);
+        } else {
+            multiset.put(x, 1);
+        }
     }
 
-
+    static void remove(int x){
+        multiset.put(x, multiset.get(x) - 1);
+        if(multiset.get(x) == 0){
+            multiset.remove(x);
+        }
+    }
 }
 
 class Kattio extends PrintWriter {
